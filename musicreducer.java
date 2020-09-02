@@ -15,13 +15,13 @@ Reducer<IntWritable, IntWritable, IntWritable,IntWritable>
 	public void reduce(IntWritable key, Iterable<IntWritable> values, Context context)
 	throws IOException, InterruptedException
 	{
-		Set<Integer> hashset = new HashSet<Integer>();
+		Set<Integer> hashsetNew = new HashSet<Integer>();
 		for(IntWritable value: values)
 		{
 			
-			hashset.add(value.get());
+			hashsetNew.add(value.get());
 		}
-		IntWritable size=  new IntWritable(hashset.size());
+		IntWritable size=  new IntWritable(hashsetNew.size());
 		context.write(key,size);
 	}
 
